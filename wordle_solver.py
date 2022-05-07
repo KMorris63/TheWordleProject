@@ -1,4 +1,10 @@
-import sys
+'''
+Wordle Assistant Script
+Author: Rodney Arnold
+Contributor: Kacey Morris
+Date: May 2022
+'''
+
 from prettytable import PrettyTable
 ''' MAIN ENTRY POINT '''
 
@@ -8,39 +14,24 @@ if __name__ == '__main__':
     print("Good starting words: \nFRAME, GRAZE, WINDY, PAINT, GOURD, SWING, VAPES \nAUDIO, FARTS, ADIEU, OUIJA "
           "\nREADY, PEARS, CHIEF, TOUCH\n")
     words = open('dictionary2.txt', 'r')
-    '''
-    #while True:
-    #tbl.clear_rows()
-    done = input("Press 'c' to  exit, enter to continue:")
-    print("\n")
-    if done == "c":
-        words.close()
-        sys.exit("Goodbye")
-    '''
+
     # Starting program sequence.
     while True:
-        #word = ""
+
         word = input("Please type the letters you know, use space for unknown: ")
         if len(word) != 5:
             continue
         else:
-            #wordArr = []
             wordArr = list(word)
             break
-    #unknown = ""
     unknown = input("Please type the letters you know, but don't have the position: ")
-    #unknownArr = []
     unknownArr = list(unknown)
-    #banned = ""
     banned = input("Enter the characters that are eliminated: ")
-    #banArr = []
     banArr = list(banned)
     print(wordArr)
 
     cnt = 0
-    #tbl.clear_rows()
     for i in words:
-        #print(i)
         skip = ""
         for p in banArr:            # Checks eliminated characters against the array.
             if p in i:
@@ -57,7 +48,6 @@ if __name__ == '__main__':
                 if j == 5:
                     cnt += 1
                     tbl.add_row([cnt, i.strip()])
-                    #print(i)
                     break
                 if wordArr[j] == ' ' and j <= 4:
                     j += 1
