@@ -31,6 +31,7 @@ if __name__ == '__main__':
     print(wordArr)
 
     cnt = 0
+    # check all works in the text file
     for i in words:
         skip = ""
         for p in banArr:            # Checks eliminated characters against the array.
